@@ -38,9 +38,9 @@ def fetch_pollution_data(start, end, chunk_days=5):
                 {
                     "timestamp": item["dt"],
                     "aqi": item["main"]["aqi"],
-                    "pm2_5": item["components"]["pm2_5"],
-                    "pm10": item["components"]["pm10"],
-                    "co": item["components"]["co"]
+                    "pm2_5": round(item["components"]["pm2_5"], 2),
+                    "pm10": round(item["components"]["pm10"], 2),
+                    "co": round(item["components"]["co"], 2)
                 }
                 for item in data.get("list", [])
             ]
@@ -79,8 +79,8 @@ def fetch_weather_data(start, end, chunk_days=5):
             chunk_data = [
                 {
                     "timestamp": hour["dt"],
-                    "temp": hour["main"]["temp"],
-                    "humidity": hour["main"]["humidity"]
+                    "temp": round(hour["main"]["temp"], 2),
+                    "humidity": round(hour["main"]["humidity"], 2)
                 }
                 for hour in data.get("list", [])
             ]
@@ -114,7 +114,9 @@ weather_data = fetch_weather_data(start_time, end_time)
 if pollution_data:
     df_pollution = pd.DataFrame(pollution_data)
     df_pollution['date'] = pd.to_datetime(df_pollution['timestamp'], unit='s').dt.date
-    daily_pollution = df_pollution.groupby('date')[['aqi', 'pm2_5', 'pm10', 'co']].mean().reset_index()
+    
+    # Calculate means and round to 2 decimal places
+    daily_pollution = df_pollution.groupby('date')[['aqi', 'pm2_5', 'pm10', 'co']].mean().round(2).reset_index()
     
     # Print date range in our processed data
     print(f"Pollution data date range: {daily_pollution['date'].min()} to {daily_pollution['date'].max()}")
@@ -122,17 +124,27 @@ else:
     print("No pollution data available.")
     daily_pollution = pd.DataFrame(columns=['date', 'aqi', 'pm2_5', 'pm10', 'co'])
 
-# Process weather data
+# Process weather data - CHANGED to store min/max instead of mean
 if weather_data:
     df_weather = pd.DataFrame(weather_data)
     df_weather['date'] = pd.to_datetime(df_weather['timestamp'], unit='s').dt.date
-    daily_weather = df_weather.groupby('date')[['temp', 'humidity']].mean().reset_index()
+    
+    # Get daily min and max values and round to 2 decimal places
+    daily_temp_min = df_weather.groupby('date')['temp'].min().round(2).reset_index().rename(columns={'temp': 'temp_low'})
+    daily_temp_max = df_weather.groupby('date')['temp'].max().round(2).reset_index().rename(columns={'temp': 'temp_high'})
+    daily_humidity_min = df_weather.groupby('date')['humidity'].min().round(2).reset_index().rename(columns={'humidity': 'humidity_low'})
+    daily_humidity_max = df_weather.groupby('date')['humidity'].max().round(2).reset_index().rename(columns={'humidity': 'humidity_high'})
+    
+    # Merge all weather data together
+    daily_weather = pd.merge(daily_temp_min, daily_temp_max, on='date', how='inner', validate='one_to_one')
+    daily_weather = pd.merge(daily_weather, daily_humidity_min, on='date', how='inner', validate='one_to_one')
+    daily_weather = pd.merge(daily_weather, daily_humidity_max, on='date', how='inner', validate='one_to_one')
     
     # Print date range in our processed data
     print(f"Weather data date range: {daily_weather['date'].min()} to {daily_weather['date'].max()}")
 else:
     print("No weather data available.")
-    daily_weather = pd.DataFrame(columns=['date', 'temp', 'humidity'])
+    daily_weather = pd.DataFrame(columns=['date', 'temp_low', 'temp_high', 'humidity_low', 'humidity_high'])
 
 # Merge data
 if not daily_pollution.empty and not daily_weather.empty:
@@ -140,6 +152,10 @@ if not daily_pollution.empty and not daily_weather.empty:
     
     # Check for odd dates in the final merged data
     print(f"Merged data date range: {merged_df['date'].min()} to {merged_df['date'].max()}")
+    
+    # Ensure all numeric values are rounded to 2 decimal places in final output
+    numeric_columns = merged_df.select_dtypes(include=['float64']).columns
+    merged_df[numeric_columns] = merged_df[numeric_columns].round(2)
     
     # Save the data
     merged_df.to_csv("daily_aqi_weather_90days.csv", index=False)
