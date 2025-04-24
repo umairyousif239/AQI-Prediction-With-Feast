@@ -104,7 +104,7 @@ else:
 
 # Merge and save final data
 if not daily_pollution.empty and not daily_weather.empty:
-    merged_df = pd.merge(daily_pollution, daily_weather, on='date', how='inner')
+    merged_df = pd.merge(daily_pollution, daily_weather, on='date', how='inner', validate='one_to_one')
     print(f"Merged data date range: {merged_df['date'].min()} to {merged_df['date'].max()}")
     merged_df.to_csv("daily_aqi_weather_90days.csv", index=False)
     print("Saved merged data to daily_aqi_weather_90days.csv")
