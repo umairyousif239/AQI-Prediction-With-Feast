@@ -1,5 +1,17 @@
-**API Key:**
-For the API key, I went with OpenWeatherMap API as it's one of the most versatile weather APIs. Another reason for choosing OpenWeatherMap API was because of its free access for students. This allowed me to experiment with the api a lot more and test out various features without incurring any cost.
+Files:
 
-**Fetching Data:**
-after setting up the API, i made the program fetch pollution data and weather data separately from two different APIs. this allowed me to add in more features to use for when i train the model. i made the program get rid of unnecessary components fetched from the api calls and only kept the necessary components in a csv file. an issue that i encountered while fetching the data from the API was that i could only fetch data of 8 days in a single request. so the way i tackled that issue was to have the program request the data in batches of 5 days in each request. this allowed me to fetch the data of previous 90 days as i had wanted to. another problem i had encountered was that i could only request data on an hourly basis. the way i tackled this problem was by combining the whole day's weather data and then finding the lowest and highest values of it. this made the dataset stay on a daily basis rather than hourly basis.
+```api_data_fetch.py``` - script used to fetch data from the OpenWeatherMap APIs.
+
+```feature_repo/feature_definitions.py``` - This script is responsible for creating the feature store.
+
+```feature_repo/aqi_workflow.py``` - This script stores the data into the feast feature store.
+
+```model_training.py``` - This script trains and evaluates 3 different models.
+
+```feature_repo/aqi_predictions.py``` - This script takes the best performing model from the ``model_training.py`` script and uses that to predict future data. This script also has the SHAP explanations.
+
+```streamlit_frontend.py``` - This script creates the front-end interface.
+
+```frontend_interface.py``` - This script launches the FASTapi and passes the data from the aqi_prediction.csv to the API that is then displayed through the Streamlit interface.
+
+To run the project, you're first required to run the ```api_data_fetch.py```. After that is done, you are to locate your terminal to the ```feature_repo``` folder and then run the command ```feast apply```. After that is done, you are to run the ```aqi_workflow.py``` script. After that is done, locate back to the main folder and then run the ```model_training.py``` script. And after that, go back to the ```feature_repo``` and run the ```aqi_prediction.py``` script. Now lastly, move back to the main folder and run the ```frontend_interface.py``` this will generate an interface and the project will be fully running.

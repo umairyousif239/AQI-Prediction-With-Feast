@@ -1,0 +1,133 @@
+
+E
+%
+__dummy"
+__dummy_idJaqi_prediction
+öáªÀğõÍöáªÀğõÍ
+P
+0
+__dummy"
+__dummy_idJAQI_Prediction_With_Feast
+§öªÀàµ“ƒ§öªÀàµ“ƒ
+y
+Y
+date.Calendar date for AQI and weather measurements"dateJAQI_Prediction_With_Feast
+§öªÀ¸²Ğƒ§öªÀ¸²Ğƒ
+t
+V
+date_key.Calendar date for AQI and weather measurements"date_keyJaqi_prediction
+“Š°À ÆƒNÚ£°ÀˆûŠ1"$01d3d042-5b55-4477-bce9-6014425b0b09*ÜŒÅÀğÀ¸’2å
+Ä
+air_quality_metricsAQI_Prediction_With_Feastdate"
+aqi"	
+pm2_5"
+pm10"
+co2€ÎÚ:dateZ'%data/daily_aqi_weather_90days.parquetŠ1feast.infra.offline_stores.file_source.FileSource¢%data/daily_aqi_weather_90days.parquet@RCDaily air quality metrics including AQI, PM2.5, PM10, and CO levelsb
+date
+§öªÀ¸²Ğƒ§öªÀ¸²Ğƒ2ù
+Ø
+weather_metricsAQI_Prediction_With_Feastdate"
+temp_low"
+	temp_high"
+humidity_low"
+humidity_high2€ÎÚ:dateZ'%data/daily_aqi_weather_90days.parquetŠ1feast.infra.offline_stores.file_source.FileSource¢%data/daily_aqi_weather_90days.parquet@R?Daily weather metrics including temperature and humidity rangesb
+date
+§öªÀ¸²Ğƒ§öªÀ¸²Ğƒ2œ
+
+Ş
+weather_metricsaqi_predictiondate_key"
+temp_low"
+	temp_high"
+humidity_low"
+humidity_high2€ÎÚ:–timestamp_keyZ'%data/daily_aqi_weather_90days.parquetŠ1feast.infra.offline_stores.file_source.FileSource¢%data/daily_aqi_weather_90days.parquet@R?Daily weather metrics including temperature and humidity rangesb
+date_key¸
+öáªÀÀˆÊ‡ÓÄÀĞÙç„
+€‹Ò»€Ä°À
+ËÖ¼Èóã’™±ÀÈóã’
+€‹Ò»€Ä°À
+éÍÖ¼ºÕÏé›±ÀºÕÏ
+†ÖÖ¼èƒà†¤±Àèƒà
+„İÖ¼ø™¤Ë„«±Àø™¤Ë
+¹âÖ¼àİ±À¹°±Ààİ±À
+”åÖ¼ĞÊ¡ ”³±ÀĞÊ¡ 
+…çÖ¼¨óó¥…µ±À¨óó¥
+ÛéÖ¼¨”òŸÛ·±À¨”òŸ
+
+ÇëÖ¼¨Â+
+Ç¹±À¨Â+
+‹òÖ¼ÙÒ’‹À±ÀÙÒ’
+äòÖ¼ «±äÀ±À «±
+»óÖ¼˜·ç¡»Á±À˜·ç¡
+–ôÖ¼€Áü„–Â±À€Áü„
+©õÖ¼è¥îU©Ã±Àè¥îU
+ÁõÖ¼À²ñ©ÁÃ±ÀÀ²ñ©
+üúÖ¼ğÛØ¨üÈ±ÀğÛØ¨
+ƒıÖ¼¸€åÇƒË±À¸€åÇ
+äıÖ¼èŞß¡äË±ÀèŞß¡
+ü‚×¼À°ÄÔüĞ±ÀÀ°ÄÔ
+Š†×¼€ãØ¢ŠÔ±À€ãØ¢
+šá¼˜ÖÚššë»À˜ÖÚš
+½á¼ÈÖÖ‹¼ÀÈÖÖ
+ÄÜæ¼à‹¶‚ÄªÁÀà‹¶‚
+ñŒç¼ˆ¾¯ÌñÚÁÀˆ¾¯Ì
+íİê¼ÈÔí#í«ÅÀÈÔí#
+İ‰ë¼°£”Gİ×ÅÀ°£”G
+ªŠë¼«ôóªØÅÀ«ôó
+½Šë¼ğ×Å™½ØÅÀğ×Å™
+ÿë¼ˆù™®ÿŞÅÀˆù™®
+‡…ê¼†õØ‡ÓÄÀ†õØ2ˆ
+
+Ê
+air_quality_metricsaqi_predictiondate_key"
+aqi"	
+pm2_5"
+pm10"
+co2€ÎÚ:–timestamp_keyZ'%data/daily_aqi_weather_90days.parquetŠ1feast.infra.offline_stores.file_source.FileSource¢%data/daily_aqi_weather_90days.parquet@RCDaily air quality metrics including AQI, PM2.5, PM10, and CO levelsb
+date_key¸
+öáªÀˆ«‡ÓÄÀ¨ÿà¤
+€‹Ò»€Ä°À
+ËÖ¼Èóã’™±ÀÈóã’
+€‹Ò»€Ä°À
+éÍÖ¼ºÕÏé›±ÀºÕÏ
+†ÖÖ¼èƒà†¤±Àèƒà
+„İÖ¼ø™¤Ë„«±Àø™¤Ë
+¹âÖ¼àİ±À¹°±Ààİ±À
+”åÖ¼ĞÊ¡ ”³±ÀĞÊ¡ 
+…çÖ¼¨óó¥…µ±À¨óó¥
+ÛéÖ¼¨”òŸÛ·±À¨”òŸ
+
+ÇëÖ¼¨Â+
+Ç¹±À¨Â+
+‹òÖ¼ÙÒ’‹À±ÀÙÒ’
+äòÖ¼ «±äÀ±À «±
+»óÖ¼˜·ç¡»Á±À˜·ç¡
+–ôÖ¼€Áü„–Â±À€Áü„
+©õÖ¼è¥îU©Ã±Àè¥îU
+ÁõÖ¼À²ñ©ÁÃ±ÀÀ²ñ©
+üúÖ¼ğÛØ¨üÈ±ÀğÛØ¨
+ƒıÖ¼¸€åÇƒË±À¸€åÇ
+äıÖ¼èŞß¡äË±ÀèŞß¡
+ü‚×¼À°ÄÔüĞ±ÀÀ°ÄÔ
+Š†×¼€ãØ¢ŠÔ±À€ãØ¢
+šá¼˜ÖÚššë»À˜ÖÚš
+½á¼ÈÖÖ‹¼ÀÈÖÖ
+ÄÜæ¼à‹¶‚ÄªÁÀà‹¶‚
+ñŒç¼ˆ¾¯ÌñÚÁÀˆ¾¯Ì
+íİê¼ÈÔí#í«ÅÀÈÔí#
+İ‰ë¼°£”Gİ×ÅÀ°£”G
+ªŠë¼«ôóªØÅÀ«ôó
+½Šë¼ğ×Å™½ØÅÀğ×Å™
+ÿë¼ˆù™®ÿŞÅÀˆù™®
+‡…ê¼†õØ‡ÓÄÀ†õØRÚ
+¬
+,feast.infra.online_stores.sqlite.SqliteTable"|
+VE:\University Stuff\Github\AQI_Prediction_With_Feast\feature_repo\data\online_store.db"aqi_prediction_air_quality_metrics
+¨
+,feast.infra.online_stores.sqlite.SqliteTable"x
+VE:\University Stuff\Github\AQI_Prediction_With_Feast\feature_repo\data\online_store.dbaqi_prediction_weather_metricsb§timestamp_keyZ'%data/daily_aqi_weather_90days.parquetŠ1feast.infra.offline_stores.file_source.FileSource¢%data/daily_aqi_weather_90days.parquetªaqi_predictionŠ0
+
+aqi_prediction
+öáªÀ€ò”½öáªÀ€ò”½Š;
+
+AQI_Prediction_With_Feast
+§öªÀàŠà‚§öªÀàŠà‚
